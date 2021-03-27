@@ -1,0 +1,201 @@
+Example 1: Reverse a Number using a while loop in Java
+public class ReverseNumber {
+
+    public static void main(String[] args) {
+
+        int num = 1234, reversed = 0;
+
+        while(num != 0) {
+            int digit = num % 10;
+            reversed = reversed * 10 + digit;
+            num /= 10;
+        }
+
+        System.out.println("Reversed Number: " + reversed);
+    }
+}
+
+//
+
+In fibonacci series, next number is the sum of previous two numbers for example 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55 etc
+class FibonacciExample1{  
+public static void main(String args[])  
+{    
+ int n1=0,n2=1,n3,i,count=10;    
+ System.out.print(n1+" "+n2);//printing 0 and 1    
+    
+ for(i=2;i<count;++i)//loop starts from 2 because 0 and 1 are already printed    
+ {    
+  n3=n1+n2;    
+  System.out.print(" "+n3);    
+  n1=n2;    
+  n2=n3;    
+ }    
+//
+
+The enumeration() method of java.util.Collections class is used to return an enumeration over the specified collection. 
+public class GFG1 { 
+    public static void main(String[] argv) throws Exception 
+    { 
+        try { 
+  
+            // creating object of List<String> 
+            List<String> arrlist = new ArrayList<String>(); 
+  
+            // Adding elemnet to srclst 
+            arrlist.add("Ram"); 
+            arrlist.add("Gopal"); 
+            arrlist.add("Verma"); 
+  
+            // Print the list 
+            System.out.println("List: " + arrlist); 
+  
+            // creating object of type Enumeration<String> 
+            Enumeration<String> e = Collections.enumeration(arrlist); 
+  
+            // Print the Enumeration 
+            System.out.println("\nEnumeration over list: "); 
+  
+            // print the enumeration 
+            while (e.hasMoreElements()) 
+                System.out.println("Value is: " + e.nextElement()); 
+        } 
+  
+        catch (IllegalArgumentException e) { 
+            System.out.println("Exception thrown : " + e); 
+        } 
+  
+        catch (NoSuchElementException e) { 
+            System.out.println("Exception thrown : " + e); 
+        } 
+    } 
+} 
+Output:
+List: [Ram, Gopal, Verma]
+
+Enumeration over list: 
+Value is: Ram
+Value is: Gopal
+Value is: VermaThis provides interoperability with legacy APIs that require an enumeration as input.
+
+Syntax:
+
+public static  Enumeration enumeration(Collection c)
+
+//
+Next →← Prev
+Palindrome Program in Java
+Palindrome number in java: A palindrome number is a number that is same after reverse.
+ For example 545, 151, 34543, 343, 171, 48984 are the palindrome numbers.
+ It can also be a string like LOL, MADAM etc.
+class PalindromeExample{  
+ public static void main(String args[]){  
+  int r,sum=0,temp;    
+  int n=454;//It is the number variable to be checked for palindrome  
+  
+  temp=n;    
+  while(n>0){    
+   r=n%10;  //getting remainder  
+   sum=(sum*10)+r;    
+   n=n/10;    
+  }    
+  if(temp==sum)    
+   System.out.println("palindrome number ");    
+  else    
+   System.out.println("not palindrome");    
+}  
+
+Write Query to Verify Duplicates Exist
+The first query we’re going to write is a simple query to verify whether duplicates do indeed exist in the table. For our example, my query looks like this:
+
+SELECT username, email, COUNT(*)
+FROM users
+GROUP BY username, email
+HAVING COUNT(*) > 1
+
+Handle Dynamic Web Elements in Selenium
+For eg consider the HTML snippet:
+<input type="submit" id=" submit_334350" value="Subscribe">
+
+This Subscribe button on the page has an ID with a dynamically changing number in it (‘334350’). This keeps on changing every time you refresh the page. But it always starts with submit. So you can use a relative XPath as given below to identify the web element:
+
+XPath - //input[starts-with(@id, ‘submit_’)]
+
+
+
+Now, consider another example:
+<input type="submit" id=" 1002-subscribe" value="Subscribe">
+
+In this case you can write XPath as:
+XPath - //input[contains(@id, ‘subscribe’)]
+
+
+Example of handling multiple windows:
+
+import java.util.Iterator; 
+import java.util.Set; 
+import org.openqa.selenium.By; 
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class WindowHandle_Demo { 
+public static void main(String[] args) throws Exception {
+
+
+System.setProperty("webdriver.chrome.driver","Path to the driver"); 
+WebDriver driver = new ChromeDriver();
+
+driver.manage().window().maximize();
+
+// Load the website
+driver.get("http://www.naukri.com/");
+
+// It will return the parent window name as a String
+String parent=driver.getWindowHandle();
+
+Set<String>s=driver.getWindowHandles();
+
+// Now iterate using Iterator
+Iterator<String> I1= s.iterator();
+
+while(I1.hasNext())
+{
+
+String child_window=I1.next();
+
+
+if(!parent.equals(child_window))
+{
+driver.switchTo().window(child_window);
+
+System.out.println(driver.switchTo().window(child_window).getTitle());
+
+driver.close();
+}
+
+}
+//switch to the parent window
+driver.switchTo().window(parent);
+
+}
+}ss
+
+
+What is synchronization in automation testing?
+In Automation Testing Synchronization is used to make application under 
+test and the Test Automation Tool work in parallel.
+ Sometimes webpage takes more time than the speed of webdriver 
+and in such cases we face Exceptions such as TimeoutException, NoSuchElementFoundException etc
+Implicit Wait directs the Selenium WebDriver to wait for a certain measure of time before throwing an exception. 
+Once this time is set, WebDriver will wait for the element before the exception occurs. 
+Once the command is in place, Implicit Wait stays in place for the entire duration for which the browser is open
+
+
+
+What are dependencies in POM XML?
+Maven pom. xml file with additional elements
+Element	Description
+url	defines url of the project.
+dependencies	defines dependencies for this project.
+dependency	defines a dependency. It is used inside dependencies.
+scope	defines scope for this maven project. It can be compile, provided, runtime, test and system.
